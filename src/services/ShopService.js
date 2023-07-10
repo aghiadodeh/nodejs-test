@@ -6,7 +6,7 @@ const baseUrl = 'https://dummyjson.com';
 async function getProducts(query) {
     const { limit, skip } = ObjectHelper.paginationData(query);
     const data = await httpService.get(`${baseUrl}/products?limit=${limit}&skip=${skip}`);
-    data.list = data.products;
+    data.data = data.products;
     delete data.products;
     return data;
 }
@@ -35,7 +35,7 @@ async function getCategoryProducts(category, query) {
         return getProducts(query);
     }
     const data = await httpService.get(`${baseUrl}/products/category/${category}?limit=${limit}&skip=${skip}`);
-    data.list = data.products;
+    data.data = data.products;
     delete data.products;
     return data;
 }
