@@ -12,7 +12,7 @@ import { errorHandler } from "./src/common/interceptors/error-handler";
 async function init() {
   const app = express();
 
-  const port = process.env.PORT;
+  const port = process.env.PORT ?? 3000;
 
   // create http server
   const httpServer = http.createServer(app);
@@ -34,6 +34,3 @@ async function init() {
 }
 
 init();
-
-// npm i express bcrypt body-parser express-validation colors cors dotenv express-mung express-sanitizer mongoose helmet hpp jsonwebtoken moment morgan-body multer nodemon toobusy-js uuidv4 winston xss-clean
-// npm i -D @babel/cli @babel/node @babel/plugin-transform-runtime @babel/preset-env @babel/plugin-syntax-decorators
