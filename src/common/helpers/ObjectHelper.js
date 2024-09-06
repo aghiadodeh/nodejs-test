@@ -6,9 +6,8 @@ export default {
      */
     paginationData: (object) => {
         const data = object ? object : { limit: 30, page: 1 };
-        const limit = parseInt(data.limit || 30);
+        const limit = parseInt(data.limit || data.per_page || 30);
         const page = parseInt(data.page || 1);
-        console.log('object', object);
         const skip = (limit * page) - limit;
         return { limit, skip };
     },
