@@ -22,4 +22,24 @@ export default {
             });
         });
     },
+    patch: async (url, data = {}, config = {}) => {
+        return new Promise(async (resolve, reject) => {
+            axios.patch(url, data, config).then(response => {
+                resolve(response.data);
+            }).catch(error => {
+                console.log(error.response);
+                reject(error);
+            });
+        });
+    },
+    delete: async (url, config = { headers }) => {
+        return new Promise(async (resolve, reject) => {
+            axios.delete(url, config).then(response => {
+                resolve(response.data);
+            }).catch(error => {
+                console.log(`${url}, error: ${error}`);
+                reject(error);
+            });
+        });
+    },
 }
